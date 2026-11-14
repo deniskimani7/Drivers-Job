@@ -1,0 +1,696 @@
+index.html<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apollo Tours · Careers</title>
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- GLOBAL RESET & VARIABLES ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    }
+
+    :root {
+      --primary: #0a4b6e;
+      --primary-light: #1b6b93;
+      --accent: #e6b422;
+      --accent-hover: #caa00f;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --text-dark: #1e2b3c;
+      --text-muted: #4a5b6e;
+      --border: #d9e2ec;
+      --success: #2a7f4e;
+      --shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      --radius: 20px;
+    }
+
+    body {
+      background: linear-gradient(145deg, #eef3f8 0%, #dae5ed 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+    }
+
+    /* ---------- MAIN CARD ---------- */
+    .career-container {
+      max-width: 1240px;
+      width: 100%;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* header */
+    .career-header {
+      background: var(--primary);
+      color: white;
+      padding: 1.8rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .logo-mark {
+      font-size: 2.2rem;
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.1);
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 2px solid rgba(230, 180, 34, 0.5);
+    }
+
+    .header-text h1 {
+      font-size: 2rem;
+      letter-spacing: -0.5px;
+      font-weight: 600;
+    }
+
+    .header-text p {
+      opacity: 0.85;
+      font-size: 1rem;
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge {
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 30px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-left: auto;
+    }
+
+    /* layout inside */
+    .career-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      padding: 2rem 2.5rem 2.5rem;
+    }
+
+    /* left – job info & details */
+    .job-info h2 {
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .job-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 1rem 0 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .job-meta i {
+      color: var(--accent-hover);
+      width: 18px;
+      margin-right: 5px;
+    }
+
+    .perks {
+      list-style: none;
+      margin-top: 1.2rem;
+    }
+
+    .perks li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .perks li i {
+      color: var(--success);
+      font-size: 1.1rem;
+    }
+
+    .payment-highlight {
+      background: #fff8e5;
+      border-left: 5px solid var(--accent);
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      margin: 1.8rem 0 0.8rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .payment-highlight i {
+      font-size: 1.8rem;
+      color: var(--accent-hover);
+    }
+
+    .mpesa-number {
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+      background: white;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      display: inline-block;
+      border: 1px dashed var(--accent);
+    }
+
+    /* right – application form */
+    .application-card {
+      background: var(--bg-light);
+      border-radius: 24px;
+      padding: 1.8rem 2rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .application-card h3 {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 0.95rem;
+      background: white;
+      transition: 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(27, 107, 147, 0.15);
+    }
+
+    /* M-Pesa payment row */
+    .mpesa-payment-box {
+      background: white;
+      border-radius: 18px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 1rem;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .mpesa-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .mpesa-label {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mpesa-label i {
+      font-size: 1.5rem;
+      color: #2e8b57;
+    }
+
+    .amount {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      background: var(--bg-light);
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      letter-spacing: -0.5px;
+    }
+
+    .pay-details {
+      font-size: 0.9rem;
+      background: #f0f7ff;
+      padding: 0.75rem 1rem;
+      border-radius: 14px;
+      color: var(--text-dark);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px;
+      border: 1px solid #cde0ed;
+    }
+
+    .pay-details span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pay-details i {
+      width: 20px;
+      color: var(--primary-light);
+    }
+
+    /* pay button */
+    .btn-pay {
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.9rem 1.6rem;
+      border: none;
+      border-radius: 60px;
+      width: 100%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: 0.2s;
+      letter-spacing: 0.3px;
+      margin-top: 0.5rem;
+      box-shadow: 0 6px 14px rgba(230, 180, 34, 0.3);
+    }
+
+    .btn-pay:hover {
+      background: var(--accent-hover);
+      transform: scale(1.01);
+    }
+
+    .btn-pay:active {
+      transform: scale(0.99);
+    }
+
+    /* apply button */
+    .btn-apply {
+      background: var(--primary);
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 1rem 1.8rem;
+      border: none;
+      border-radius: 60px;
+      width: 100%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: 0.2s;
+      margin-top: 1.5rem;
+      box-shadow: 0 8px 18px rgba(10, 75, 110, 0.2);
+    }
+
+    .btn-apply:disabled {
+      background: #b0c4d9;
+      box-shadow: none;
+      cursor: not-allowed;
+      opacity: 0.7;
+      transform: none;
+    }
+
+    .btn-apply:not(:disabled):hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    /* status messages */
+    .status-msg {
+      font-size: 0.9rem;
+      margin-top: 10px;
+      text-align: center;
+      padding: 8px;
+      border-radius: 30px;
+      font-weight: 500;
+    }
+
+    .status-success {
+      background: #e3f5e9;
+      color: var(--success);
+      border: 1px solid #b8dfc6;
+    }
+
+    .status-error {
+      background: #ffeaea;
+      color: #b33a3a;
+      border: 1px solid #f5c2c2;
+    }
+
+    /* small */
+    .small-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      .career-body {
+        grid-template-columns: 1fr;
+        padding: 1.8rem;
+      }
+      .career-header {
+        padding: 1.2rem 1.8rem;
+      }
+      .header-text h1 {
+        font-size: 1.6rem;
+      }
+      .badge {
+        margin-left: 0;
+        width: fit-content;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .career-container {
+        border-radius: 16px;
+      }
+      .career-body {
+        padding: 1.2rem;
+      }
+      .application-card {
+        padding: 1.2rem;
+      }
+      .amount {
+        font-size: 1.4rem;
+      }
+      .mpesa-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="career-container">
+  <!-- HEADER -->
+  <div class="career-header">
+    <div class="logo-mark">
+      <i class="fas fa-bus-alt"></i>
+    </div>
+    <div class="header-text">
+      <h1>Apollo Tours</h1>
+      <p><i class="fas fa-map-pin"></i> Careers · Join our crew</p>
+    </div>
+    <div class="badge">
+      <i class="fas fa-briefcase"></i> Now hiring
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="career-body">
+    <!-- LEFT SIDE: JOB DETAILS & PAYMENT HIGHLIGHT -->
+    <div class="job-info">
+      <h2><i class="fas fa-user-tie" style="color: var(--accent-hover);"></i> Tour Operations Assistant</h2>
+      <div class="job-meta">
+        <span><i class="fas fa-map-marker-alt"></i> Nairobi, CBD</span>
+        <span><i class="fas fa-clock"></i> Full‑time</span>
+        <span><i class="fas fa-calendar-alt"></i> Immediate start</span>
+      </div>
+
+      <p style="color: var(--text-muted); line-height: 1.6;">
+        Apollo Tours is looking for a dynamic and organized individual to support our tour operations.
+        You'll coordinate bookings, assist guests, and ensure smooth travel experiences.
+      </p>
+
+      <ul class="perks">
+        <li><i class="fas fa-check-circle"></i> Competitive salary + travel perks</li>
+        <li><i class="fas fa-check-circle"></i> Health insurance & paid leave</li>
+        <li><i class="fas fa-check-circle"></i> Training and career growth</li>
+        <li><i class="fas fa-check-circle"></i> Friendly, fast‑paced team</li>
+      </ul>
+
+      <!-- M-PESA PAYMENT HIGHLIGHT (left side for visibility) -->
+      <div class="payment-highlight">
+        <i class="fas fa-mobile-alt"></i>
+        <div>
+          <strong>Application fee: Ksh 200</strong> via M‑Pesa <br>
+          <span class="mpesa-number">0726577089</span> (Apollo Tours)
+        </div>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">
+        <i class="fas fa-info-circle"></i> Pay first, then fill & submit the form.
+      </p>
+    </div>
+
+    <!-- RIGHT SIDE: APPLICATION FORM WITH PAYMENT -->
+    <div class="application-card">
+      <h3><i class="fas fa-file-signature" style="color: var(--accent-hover);"></i> Apply now</h3>
+
+      <!-- PAYMENT SECTION (M-PESA) -->
+      <div class="mpesa-payment-box">
+        <div class="mpesa-row">
+          <span class="mpesa-label"><i class="fas fa-wallet"></i> M‑Pesa payment</span>
+          <span class="amount">Ksh 200</span>
+        </div>
+        <div class="pay-details">
+          <span><i class="fas fa-phone-alt"></i> Pay to: <strong>0726577089</strong> (Apollo Tours)</span>
+          <span><i class="fas fa-receipt"></i> Reference: <strong>Your full name</strong> (e.g. JOHNDOE)</span>
+        </div>
+
+        <!-- PAY BUTTON (simulated) -->
+        <button id="payButton" class="btn-pay">
+          <i class="fas fa-mobile-screen-button"></i> Pay Ksh 200 via M‑Pesa
+        </button>
+        <div id="paymentStatus" class="status-msg" style="display: none;"></div>
+        <p class="small-note">
+          <i class="fas fa-lock"></i> Secure payment · You'll receive a confirmation SMS
+        </p>
+      </div>
+
+      <!-- APPLICATION FORM FIELDS -->
+      <div class="form-group">
+        <label for="fullName"><i class="fas fa-user"></i> Full name</label>
+        <input type="text" id="fullName" placeholder="e.g. Jane Wanjiru" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email"><i class="fas fa-envelope"></i> Email address</label>
+        <input type="email" id="email" placeholder="jane@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone"><i class="fas fa-phone"></i> Phone number</label>
+        <input type="tel" id="phone" placeholder="0712 345 678" required>
+      </div>
+
+      <div class="form-group">
+        <label for="position"><i class="fas fa-briefcase"></i> Position</label>
+        <select id="position">
+          <option value="Tour Operations Assistant" selected>Tour Operations Assistant</option>
+          <option value="Customer Service Lead">Customer Service Lead</option>
+          <option value="Driver Guide">Driver Guide</option>
+        </select>
+      </div>
+
+      <!-- APPLY BUTTON (disabled until payment) -->
+      <button id="applyButton" class="btn-apply" disabled>
+        <i class="fas fa-paper-plane"></i> Submit application
+      </button>
+
+      <div id="applyStatus" class="status-msg" style="display: none;"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // ---------- DOM ELEMENTS ----------
+    const payButton = document.getElementById('payButton');
+    const applyButton = document.getElementById('applyButton');
+    const paymentStatus = document.getElementById('paymentStatus');
+    const applyStatus = document.getElementById('applyStatus');
+
+    // form fields
+    const fullName = document.getElementById('fullName');
+    const email = document.getElementById('email');
+    const phone = document.getElementById('phone');
+    const position = document.getElementById('position');
+
+    // state
+    let isPaid = false;
+    const MPESA_NUMBER = '0726577089';
+    const AMOUNT = 200;
+
+    // ---------- HELPER: show message ----------
+    function setMessage(element, text, type) {
+      element.style.display = 'block';
+      element.textContent = text;
+      element.className = 'status-msg ' + (type === 'success' ? 'status-success' : 'status-error');
+    }
+
+    function clearMessage(element) {
+      element.style.display = 'none';
+      element.textContent = '';
+    }
+
+    // ---------- M-PESA PAYMENT SIMULATION ----------
+    payButton.addEventListener('click', function() {
+      // Simulate M-Pesa STK push / confirmation
+      // In a real scenario, you'd integrate with Daraja API, but here we simulate success.
+
+      // Disable button to prevent double click
+      payButton.disabled = true;
+      payButton.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Processing payment...';
+
+      clearMessage(paymentStatus);
+      clearMessage(applyStatus);
+
+      // Simulate network delay
+      setTimeout(() => {
+        // success simulation
+        isPaid = true;
+
+        // Update UI
+        payButton.innerHTML = '<i class="fas fa-check-circle"></i> Payment confirmed';
+        payButton.style.background = '#2a7f4e';
+        payButton.style.color = 'white';
+        payButton.style.cursor = 'default';
+
+        setMessage(paymentStatus, `✅ Paid Ksh ${AMOUNT} to ${MPESA_NUMBER}. You can now apply.`, 'success');
+
+        // Enable apply button
+        applyButton.disabled = false;
+
+        // small note
+        // Also auto-hide payment status after some seconds? optional, keep visible.
+      }, 1300);
+    });
+
+    // ---------- APPLY BUTTON LOGIC ----------
+    applyButton.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      // Double-check if payment is done (security)
+      if (!isPaid) {
+        setMessage(applyStatus, '⚠️ Please complete the M‑Pesa payment of Ksh 200 first.', 'error');
+        return;
+      }
+
+      // Validate form fields
+      const nameVal = fullName.value.trim();
+      const emailVal = email.value.trim();
+      const phoneVal = phone.value.trim();
+
+      if (!nameVal || !emailVal || !phoneVal) {
+        setMessage(applyStatus, '⚠️ Please fill in all fields (name, email, phone).', 'error');
+        return;
+      }
+
+      // simple email check
+      if (!emailVal.includes('@') || !emailVal.includes('.')) {
+        setMessage(applyStatus, '⚠️ Please enter a valid email address.', 'error');
+        return;
+      }
+
+      // phone basic check (digits)
+      if (!/^[\d\s+()-]{7,15}$/.test(phoneVal)) {
+        setMessage(applyStatus, '⚠️ Please enter a valid phone number.', 'error');
+        return;
+      }
+
+      // SUCCESS: simulate application submission
+      applyButton.disabled = true;
+      applyButton.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Submitting...';
+
+      // Clear previous messages
+      clearMessage(applyStatus);
+
+      setTimeout(() => {
+        // final success message
+        setMessage(
+          applyStatus,
+          `✅ Application received, ${nameVal}! We'll contact you at ${emailVal} shortly. Reference: APL-${Math.floor(Math.random() * 10000)}`,
+          'success'
+        );
+        applyButton.innerHTML = '<i class="fas fa-check-circle"></i> Application sent';
+        applyButton.style.background = '#2a7f4e';
+        applyButton.style.cursor = 'default';
+
+        // Optional: reset form after success? not needed, but we disable.
+        // But keep button disabled to prevent multiple submissions.
+        // You can also disable inputs if needed.
+        fullName.disabled = true;
+        email.disabled = true;
+        phone.disabled = true;
+        position.disabled = true;
+
+        // Also update payButton already disabled (already done)
+      }, 1200);
+    });
+
+    // ---------- RESET MESSAGES ON INPUT (optional) ----------
+    [fullName, email, phone].forEach(field => {
+      field.addEventListener('input', () => {
+        if (applyStatus.style.display === 'block' && applyStatus.classList.contains('status-error')) {
+          // keep it, user sees error while typing, but we might clear later
+          // we'll just leave it, it's fine.
+        }
+      });
+    });
+
+    // initial: ensure apply button is disabled (already disabled in HTML)
+    // Also if payment is not done, no way to enable it except payment simulation.
+    // payment button should be clickable only once, we handle that.
+
+    // extra: if user clicks pay after already paid? payButton becomes disabled so fine.
+    // Also if they click "Submit application" without payment we already handle.
+
+    // reset paymentStatus if needed? fine.
+
+    // Keep note: for demo, when page loads, applyButton is disabled.
+    // User must click "Pay Ksh 200 via M‑Pesa" first.
+  })();
+</script>
+</body>
+</html>
